@@ -1,42 +1,21 @@
 ---
-title: "Projet : Platformer 2D"
+title: "Projet"
 layout: default
 ---
 
-# Projet : Platformer 2D
+# Projet
 
-![Screenshot bande annonce](/assets/img/projet/trailer-screenshot.png)
-
-Le but du projet de cette année est de réaliser un peu jeu de type "platformer" en 2D.
-[Super Mario Bros](https://supermarioplay.com/fr), publié par Nintendo en 1985, est l'exemple canonique de ce type de jeu.
-À l'époque, il s'agissait d'une prouesse technologique.
-En 2025, vous allez pouvoir produire en quelques mois un jeu d'ampleur similaire.
-
-Nous n'allons pas partir de rien !
-Nous allons profiter de la bibliothèque [Arcade](https://api.arcade.academy/en/latest/) pour nous donner quelques primitives graphiques et physiques.
-Vous pourrez également utiliser des images et sons (*assets*) tout faits, libres de droits.
-Cependant, vous allez développer toute la logique du jeu.
-
-Vous recevrez chaque semaine des instructions pour aller un peu plus loin dans le développement du jeu.
-Au fur et à mesure des semaines, vous disposerez de plus en plus de libertés sur les choix de conception, d'implémentation, et même des fonctionnalités que vous ajouterez à votre de jeu.
-La première semaine sera détaillée pas à pas, avec peu de libertés, afin que vous maîtrisiez les principaux concepts impliqués dans la réalisation d'un jeu de ce type.
-Lors des deux dernières semaines, vous aurez pratiquement quartier libre pour faire briller votre créativité.
-
-## Étapes de la réalisation du projet
-
-* [Semaine 1 – Découverte d'Arcade](./01-decouverte.html) : personnage, murs fixes, pièces à collecter et caméra
-* [Semaine 2 - Maps et monstres](./02-maps-et-monstres.html) : charger la map depuis un fichier, monstres de type "blob"
-* [Semaine 3 - Niveaux et épée](./03-niveaux-et-epee.html) : une épée pour attaquer les monstres, un score, et différents niveaux
+À découvrir en Semaine 2
 
 ## Administration
 
 ### Rendu
 
 Le projet est à réaliser impérativement en groupe de deux personnes sans aucune exception.
-Les groupes sont à constituer d'ici au 5 mars 2025.
+Les groupes sont à constituer d'ici au 6 mars 2026.
 
 Concernant le rendu, nous ne vous demandons pas de rapport (document) sur le projet.
-Par contre, nous vous demandons de commenter abondamment et intelligemment les codes sources que vous nous rendrez (les commentaires remplaceront le rapport) et de fournir quatre fichiers complémentaires :
+Par contre, nous vous demandons de commenter intelligemment les codes sources que vous nous rendrez et de fournir quatre fichiers complémentaires :
 
 * Un fichier `LOG.md` (journal) résumant votre progression et reportant, brièvement, semaine après semaine, ce que vous avez fait sur le projet.
   Voir un [exemple ici](./LOG.md).
@@ -58,9 +37,9 @@ Par contre, nous vous demandons de commenter abondamment et intelligemment les c
 
 * Un fichier `README.md` expliquant ce qu'est votre programme et comment l'utiliser.
   Donnez quelques exemples concrets.
-  Imaginez que c'est le fichier que votre famille et vos amis vont consulter pour découvrir votre jeu (bon, des amis qui ont installé `uv`...).
+  Imaginez que c'est le fichier que votre famille et vos amis vont consulter pour découvrir votre jeu (bon, des amis qui ont installé `uv` et qui savent ouvrir une ligne de commande/shell...).
 
-La date limite de remise du projet est le vendredi 30 mai à 23h58.
+La date limite de remise du projet est le vendredi 29 mai à 23h58.
 Cette date est absolument impérative.
 Aucune extension de délai ne sera accordée !
 

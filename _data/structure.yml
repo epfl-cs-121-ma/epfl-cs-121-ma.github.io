@@ -116,24 +116,3 @@
 - title: Projet
   url: /projet/
   items:
-    - title: Découverte d'Arcade
-      url: /projet/01-decouverte.html
-      week: 2
-    - title: Maps et monstres
-      url: /projet/02-maps-et-monstres.html
-      week: 3
-    - title: Niveaux et épée
-      url: /projet/03-niveaux-et-epee.html
-      week: 4
-    - title: Arc et chauves-souris
-      url: /projet/04-arc-et-chauves-souris.html
-      week: 5
-    - title: Refactoring 1
-      url: /projet/05-refactoring-1.html
-      week: 6
-    - title: Plateformes et interrupteurs
-      url: /projet/06-plateformes-et-interrupteurs.html
-      week: 8
-    - title: Performances et extensions
-      url: /projet/07-extensions.html
-      week: 11

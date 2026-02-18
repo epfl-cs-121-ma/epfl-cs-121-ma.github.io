@@ -47,8 +47,8 @@ Pour remplir les objectifs multiples de ce cours, les outils pédagogiques suiva
 * La section "tutoriels" contient aussi des *fiches de références*, utiles tout au long de vos développement.
 * Les [séries](./series/) vous proposent des exercices pour mettre en pratique et consolider vos acquis.
   Les solutions seront rendues publiques dans la semaine suivante.
-* Le [forum Ed Discussions](https://edstem.org/eu/courses/2070/discussion).
-* Le [cours Moodle](https://moodle.epfl.ch/course/view.php?id=18850) pour la gestion des groupes et le rendu du projet.
+* Le [forum Ed Discussions](https://edstem.org/eu/courses/3122/discussion).
+* Le [cours Moodle](https://moodle.epfl.ch/course/view.php?id=19040) pour la gestion des groupes et le rendu du projet.
 
 ## Sous quelle forme le cours est-il donné ?
 
@@ -164,7 +164,7 @@ Il n'est donc pas possible de réussir le cours en vous reposant uniquement sur 
 
 ### Forums
 
-Pour toutes vos questions sur le cours, les exercices, ou le projet, il n'y a qu'une adresse : [le forum Ed Discussions](https://edstem.org/eu/courses/2070/discussion).
+Pour toutes vos questions sur le cours, les exercices, ou le projet, il n'y a qu'une adresse : [le forum Ed Discussions](https://edstem.org/eu/courses/3122/discussion).
 C'est l'outil principal pour interagir avec l'équipe d'enseignement sans avoir à attendre les séances en présentiel.
 Nous vous encourageons très fortement à y poser vos questions, **mais aussi à répondre** aux questions de vos collègues.
 
@@ -192,7 +192,7 @@ Je rappelle qu'il est impératif de respecter les directives relatives à l'util
 
 La documentation du cours comprend les tutoriels, les séries d'exercices, ainsi que des mini-références.
 Nous utiliserons également la documentation en ligne de Python et des bibliothèques.
-Les documents seront ajoutés sur le site au fur et à mesure du semestre.
+Les documents pourront être mis à jour au fur et à mesure du semestre.
 
 ## Organisation du travail
 
