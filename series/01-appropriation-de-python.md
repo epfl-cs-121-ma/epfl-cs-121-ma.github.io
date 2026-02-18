@@ -67,8 +67,8 @@ Le résultat de `frac_to_str` pour deux-ci devrait être :
 On veut maintenant implémenter les quatre opérations élémentaires.
 Pour chacune, définissez une fonction implémentant l'opération, et écrivez des tests pytest adéquats.
 
-N'oubliez pas de vérifier avec **mypy** que votre programme n'a pas de problèmes de types.
-VS Code devrait vous l'indiquer immédiatement, mais il est bon, de temps en temps, de forcer mypy à tout vérifier.
+N'oubliez pas de vérifier avec **ty** et **Ruff** que votre programme n'a pas de problèmes de types.
+VS Code devrait vous l'indiquer immédiatement, mais il est bon, de temps en temps, de forcer ty et Ruff à tout vérifier.
 
 ### Addition
 

@@ -15,7 +15,8 @@ Nous utiliserons les outils suivants (il n'est pas nécessaire de suivre ces lie
 
 * [uv](https://docs.astral.sh/uv/) pour gérer nos projets et leurs dépendances (y compris certains des *autres* outils).
 * [VS Code](https://code.visualstudio.com/) *(optionnel)* pour l'édition de nos programmes (remplaçant donc Geany par rapport au premier semestre).
-* [Mypy](https://mypy-lang.org/) *en mode strict* pour valider les types statiques de nos programmes.
+* [ty](https://docs.astral.sh/ty/) pour valider les types statiques de nos programmes.
+* [Ruff](https://docs.astral.sh/ruff/) pour s'assurer que ty s'applique à *toutes* les fonctions de nos programmes.
 * [pytest](https://docs.pytest.org/en/stable/) pour *tester* nos programmes.
 
 ## Sommaire
@@ -29,6 +30,26 @@ Nous utiliserons les outils suivants (il n'est pas nécessaire de suivre ces lie
 
 [uv](https://docs.astral.sh/uv/) sera notre outil à tout faire.
 Il coordonnera l'installation de plusieurs autres outils, y compris Python lui-même !
+
+### Si vous aviez déjà `uv`
+
+Essayez la commande suivante :
+
+```
+$ uv self version
+uv 0.9.15
+```
+
+Si elle s'exécute sans erreur, vous avez déjà `uv`, mais vous devez (probablement) le mettre à jour.
+Lancez alors :
+
+```
+$ uv self update
+info: Checking for updates...
+success: Upgraded uv from v0.9.15 to v0.10.4! https://github.com/astral-sh/uv/releases/tag/0.10.4
+```
+
+Sinon, continuez.
 
 ### Sur les machines de l'EPFL
 
@@ -60,8 +81,8 @@ Dans les deux cas:
 2. Ouvrez un nouveau terminal, et exécutez :
 
 ```
-$ uv version
-uv 0.6.0
+$ uv self version
+uv 0.10.4
 ```
 
 Vous devriez obtenir un résultat similaire à la deuxième ligne ci-dessus (celle sans `$`).
@@ -73,6 +94,8 @@ Si vous avez déjà l'habitude d'utiliser un environnement de développement int
 
 En revanche, évitez les éditeurs de texte trop simples, tels que Geany, ne suffiront plus ce semestre (ni dans la suite de vos projets).
 Les IDEs offrent de nombreuses fonctionnalités qui vont vous aider dans vos développements.
+
+De plus, nous ne garantissons pas que nous pourrons vous aider à configurer correctement des éditeurs autres que VS Code.
 
 ### Installer VS Code
 
@@ -98,11 +121,32 @@ Ceci est à faire que vous utilisiez les machines de l'EPFL ou non.
 
 3. Dans la barre de recherche, cherchez puis installez les extensions suivantes :
 
-   * Python (éditeur : Microsoft)
+   * [Python](https://marketplace.visualstudio.com/items/?itemName=ms-python.python) (éditeur : Microsoft)
      (cela installe automatiquement "Python Debugger" de Microsoft en plus)
-   * Mypy Type Checker (éditeur : Microsoft)
+   * [Ruff](https://marketplace.visualstudio.com/items/?itemName=charliermarsh.ruff) (éditeur : Astral Software)
+   * [ty](https://marketplace.visualstudio.com/items/?itemName=astral-sh.ty) (éditeur : Astral)
 
-   ![Extensions de VS Code pour Python](/assets/img/vs-code-python-extensions.png)
+### Configurer VS Code et ses extensions
+
+Afin de profiter au mieux de ce que VS Code, Python, Ruff, ty et git ont à vous offrir, nous recommendons quelques configurations spécifiques.
+Utiliser `Ctrl+,` (oui, la virgule) pour ouvrir les *Settings* de VS Code.
+Puis, cliquez en haut à droite sur l'icône "Open Settings (JSON)" :
+
+![Open Settings (JSON)](/assets/img/vs-code-open-settings-json.png)
+
+puis, entre les `{}`, ajouter les lignes suivantes :
+
+```json
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "ty.inlayHints.variableTypes": false,
+  "ty.diagnosticMode": "workspace",
+  "ty.inlayHints.callArgumentNames": false
+```
+
+S'il y avait déjà des settings dans les `{}`, vous devrez sans doute ajouter une virgule `,` sur la ligne précédente.
+Sauvegardez pour que ces options prennent effet.
 
 ## Créer un projet Python
 
@@ -125,21 +169,26 @@ Dans ce dossier, créez un projet Python vierge dans le sous-dossier `prise-en-m
 ```
 projets$ mkdir prise-en-main
 projets$ cd prise-en-main
-prise-en-main$ uv init -p 3.13
+prise-en-main$ uv init -p 3.14
 Initialized project `prise-en-main`
 ```
 
-L'argument `-p 3.13` à `uv init` signifie que nous voulons utiliser Python 3.13 dans ce projet.
-S'il ne l'a pas encore fait, `uv` installera automatiquement un Python 3.13 à son usage.
+L'argument `-p 3.14` à `uv init` signifie que nous voulons utiliser Python 3.14 dans ce projet.
+S'il ne l'a pas encore fait, `uv` installera automatiquement un Python 3.14 à son usage.
 C'est pour cela que nous n'avons pas dû intaller Python en tant que tel.
 Même si votre système possède une version "globale" de Python, `uv` utilisera celle que nous avons exigée dans ce projet.
 C'est très utile, car cela garantit que votre programme fonctionnera de la même manière sur n'importe quel ordinateur.
+
+⚠️ Vérifiez toujours qu'un fichier `.gitignore` a bien été créé par `uv init`.
+`ls .gitignore` doit afficher quelque chose.
+Si ce n'est pas le cas, c'est que vous avez accidentellement créé votre projet *à l'intérieur d'un autre repository git*.
+Des tas de choses de choses vont mal se passer dans le futur si c'est le cas ! ⚠️
 
 Vous pouvez d'ores et déjà lancer ce programme avec la commande suivante :
 
 ```
 prise-en-main$ uv run main.py
-Using CPython 3.13.2
+Using CPython 3.14.1
 Creating virtual environment at: .venv
 Hello from prise-en-main!
 ```
@@ -191,6 +240,9 @@ Vous devriez obtenir :
 ⚠️ Vérifiez que le titre de la fenêtre de VS Code indique bien `prise-en-main` (et non son dossier parent `projets`, par exemple).
 Si ce n'est pas le cas, vous n'avez pas sélectionné le bon dossier, et les choses ne vont pas bien se passer.
 
+Sur Windows (et je crois sur Mac OS), il faut entrer *à l'intérieur* du dossier que vous vous voulez sélectionner, *puis* cliquer "Ouvrir"/"Open".
+Sur Linux par contre, il faut rester *en dehors* du dossier, le *sélectionner* (sans rentrer dedans), puis cliquer "Ouvrir"/"Open". ⚠️
+
 Découvrons les fichiers que `uv init` a créés pour nous.
 
 #### `main.py`
@@ -211,7 +263,7 @@ La ligne `def main():` introduit une fonction appelée `main`, sans argument.
 Son implémentation contient l'appel d'une autre fonction, `print(...)`, qui affiche une valeur à l'écran.
 Elle correspondrait à une ligne `cout << "..." << endl;` en C++.
 
-Les deux dernière lignes disent ceci : si c'est ce fichier (`__name__`) qui est exécuté comme fichier principal du programme (`"__main__"`), alors appelle la fonction `main()`.
+Les deux dernières lignes disent ceci : si c'est ce fichier (`__name__`) qui est exécuté comme fichier principal du programme (`"__main__"`), alors appelle la fonction `main()`.
 C'est ce qui se passe quand nous lançons `uv run main.py`.
 Contrairement à C++, la fonction `main()` n'est pas appelée automatiquement au démarrage du programme.
 Ce sont ces deux dernières lignes qui s'en chargent explicitement.
@@ -239,7 +291,7 @@ name = "prise-en-main"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = []
 ```
 
@@ -279,40 +331,53 @@ En effet, cela permet de s'assurer que votre projet fonctionnera avec exactement
 Il est parfois plus pratique de lancer votre projet directement depuis VS Code.
 Lorsque le fichier `main.py` est ouvert, cliquez sur l'icône ▷ située tout en haut à droite de l'écran.
 
-## Activer le type checker mypy (obligatoire !)
+## Activer le checker d'annotations de type (obligatoire !)
 
-Dans ce cours, nous utiliserons exclusivement du Python statiquement typé avec [mypy](https://mypy-lang.org/), *en mode strict*.
+Dans ce cours, nous utiliserons exclusivement du Python statiquement typé avec [ty](https://docs.astral.sh/ty/), et nous utilisons une règle de [Ruff](https://docs.astral.sh/ruff/) pour forcer *toutes* les méthodes à avoir des types.
 Configurons maintenant notre projet pour s'assurer que c'est le cas.
 
 Ouvrez le fichier `pyproject.toml` dans VS Code.
 Ajoutez les lignes suivantes à la fin :
 
 ```toml
-[tool.mypy]
-strict = true
+[tool.ruff.lint]
+select = ["ANN"]
 ```
 
 et sauvegardez.
 
-Puis, demandez à `uv` d'installer mypy pour votre projet avec la commande suivante :
+Puis, demandez à `uv` d'installer ty et Ruff pour votre projet avec la commande suivante :
 
 ```
-$ uv add --dev mypy
-Resolved 4 packages in 149ms
-Installed 3 packages in 555ms
- + mypy==1.15.0
- + mypy-extensions==1.0.0
- + typing-extensions==4.12.2
+$ uv add --dev ty ruff
+Resolved 3 packages in 48ms
+Installed 2 packages in 1ms
+ + ruff==0.15.1
+ + ty==0.0.17
 ```
 
-Vous pouvez désormais lancer mypy sur votre projet avec :
+Vous pouvez désormais lancer ty sur votre projet avec :
 
 ```
-$ uv run mypy . # le '.' est important
-main.py:1: error: Function is missing a return type annotation  [no-untyped-def]
-main.py:1: note: Use "-> None" if function does not return a value
-main.py:6: error: Call to untyped function "main" in typed context  [no-untyped-call]
-Found 2 errors in 1 file (checked 1 source file)
+$ uv run ty check
+All checks passed!
+```
+
+Ainsi que Ruff avec :
+
+```
+$ uv run ruff check
+ANN201 Missing return type annotation for public function `main`
+ --> main.py:1:5
+  |
+1 | def main():
+  |     ^^^^
+2 |     print("Hello from new-python-test!")
+  |
+help: Add return type annotation: `None`
+
+Found 1 error.
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).
 ```
 
 Huh ! Malédiction !
@@ -326,10 +391,10 @@ Dans VS Code, utiliser la combinaison de touche `Ctrl+Shift+P`, puis utilisez la
 Après avoir fait des modifications dans votre `pyproject.toml`, il est parfois nécessaire d'utiliser cette commande pour que VS Code en tienne compte.
 
 Ouvrez à nouveau `main.py`.
-Au bout d'un petit moment, si ce n'est pas immédiat, certaines lignes apparaîtront en rouge.
-Ce sont les erreurs de mypy.
+Au bout d'un petit moment, si ce n'est pas immédiat, le nom de la function `main` sera sousligné en jaune.
+C'est l'erreur de Ruff.
 
-Corrigeons la déclaration de `def main` pour inclure le `-> None` exigé par mypy:
+Corrigeons la déclaration de `def main` pour inclure le `-> None` exigé par Ruff:
 
 ```diff
 -def main():
@@ -339,12 +404,14 @@ Corrigeons la déclaration de `def main` pour inclure le `-> None` exigé par my
 
 Dans ce contexte, `None` est équivalent au `void` de C++.
 
-Après avoir sauvegardé, les lignes rouges disparaissent, indiquant que le problème est résolu.
-On peut aussi s'en assurer en lançant mypy explicitement :
+Après avoir sauvegardé, les lignes jaunes disparaissent, indiquant que le problème est résolu.
+On peut aussi s'en assurer en relançant Ruff et ty explicitement :
 
 ```
-$ uv run mypy .
-Success: no issues found in 1 source file
+$ uv run ruff check
+All checks passed!
+$ uv run ty check
+All checks passed!
 ```
 
 On voit ici un avantage certain de VS Code (ou de n'importe quel autre IDE) comparé à Geany.
@@ -382,17 +449,18 @@ Dans ce cours, nous allons utiliser [pytest](https://docs.pytest.org/en/stable/)
 
 ### Installer pytest
 
-Nous installons pytest de la même façon que mypy, avec la commande suivante :
+Nous installons pytest de la même façon que ty et Ruff, avec la commande suivante :
 
 ```
 $ uv add --dev pytest
-Resolved 9 packages in 283ms
-Installed 5 packages in 80ms
- + colorama==0.4.6
- + iniconfig==2.0.0
- + packaging==24.2
- + pluggy==1.5.0
- + pytest==8.3.4
+Resolved 9 packages in 158ms
+Prepared 5 packages in 107ms
+Installed 5 packages in 7ms
+ + iniconfig==2.3.0
+ + packaging==26.0
+ + pluggy==1.6.0
+ + pygments==2.19.2
+ + pytest==9.0.2
 ```
 
 Nous pouvons immédiatement tenter d'exécuter "tous les tests" de notre programme :
@@ -400,7 +468,7 @@ Nous pouvons immédiatement tenter d'exécuter "tous les tests" de notre program
 ```
 $ uv run pytest
 === test session starts ===
-platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.5.0
+platform linux -- Python 3.14.1, pytest-9.0.2, pluggy-1.6.0
 rootdir: .../prise-en-main
 configfile: pyproject.toml
 collected 0 items
@@ -456,7 +524,7 @@ Nous pouvons maintenant lancer notre test :
 ```
 $ uv run pytest
 === test session starts ===
-platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.5.0
+platform linux -- Python 3.14.1, pytest-9.0.2, pluggy-1.6.0
 rootdir: .../prise-en-main
 configfile: pyproject.toml
 collected 1 item
@@ -483,7 +551,7 @@ Et lançons à nouveaux nos tests :
 ```
 $ uv run pytest
 === test session starts ===
-platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.5.0
+platform linux -- Python 3.14.1, pytest-9.0.2, pluggy-1.6.0
 rootdir: .../prise-en-main
 configfile: pyproject.toml
 collected 1 item
@@ -556,8 +624,7 @@ VS Code sera notre éditeur de code.
 C'est un Environnement de Développement Intégré (IDE en anglais) : au-delà d'éditer le code lui-même, il intègre les différents outils de développement dans une interface visuelle.
 Cela facilite notre développement.
 
-Mypy est le type checker que nous utilisons.
-Nous l'utiliserons systématiquement en mode strict.
+ty est le type checker que nous utilisons, et nous utilisons Ruff pour s'assurer qu'il s'applique à *toutes* les fonctions du projet.
 Grâce à l'intégration dans VS Code, nous visualisons immédiatement les erreurs de compilation dans notre programme.
 
 Finalement, pytest est notre testing framework.

@@ -129,7 +129,7 @@ Enfin, pour vous faciliter la vie durant le projet :
   On ne se rappelle alors plus ce que l'on avait voulu faire.
   Les commentaires aident à la correction et, en ce sens, participent à la notation.
 
-* Minimisez le nombre d'erreurs mypy actives en même temps.
+* Minimisez le nombre d'erreurs ty/Ruff actives en même temps.
   Profitez du fait que VS Code vous montre toutes les erreurs de syntaxe et de types en live pour les corriger au fur et à mesure.
   Il est plus facile de corriger 2 ou 3 fautes de syntaxe dans quelques nouvelles lignes de code que 100 fautes dans 400 lignes de code !
 

@@ -15,20 +15,25 @@ $ pwd
 .../projets
 $ mkdir nouveau-projet
 $ cd nouveau-projet
-$ uv init -p 3.13
+$ uv init -p 3.14
 ```
+
+⚠️ Vérifiez toujours qu'un fichier `.gitignore` a bien été créé par `uv init`.
+`ls .gitignore` doit afficher quelque chose.
+Si ce n'est pas le cas, c'est que vous avez accidentellement créé votre projet *à l'intérieur d'un autre repository git*.
+Des tas de choses de choses vont mal se passer dans le futur si c'est le cas ! ⚠️
 
 Ajouter à la fin de `pyprojet.toml` :
 
 ```
-[tool.mypy]
-strict = true
+[tool.ruff.lint]
+select = ["ANN"]
 ```
 
-Intallez mypy et pytest :
+Intaller ty, Ruff et pytest :
 
 ```
-$ uv add --dev mypy pytest
+$ uv add --dev ty ruff pytest
 ```
 
 Créer le dossier `tests` et son fichier `__init__.py` :
@@ -46,10 +51,11 @@ Ajouter `-> None` dans la définition de `def main` dans `main.py` :
      print("Hello from solutions-serie-02!")
 ```
 
-Vérifiez que mypy et pytest s'exécutent sans erreur :
+Vérifiez que ty, Ruff et pytest s'exécutent sans erreur :
 
 ```
-$ uv run mypy .
+$ uv run ty check
+$ uv run ruff check
 $ uv run pytest
 ```
 
