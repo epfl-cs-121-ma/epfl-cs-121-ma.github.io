@@ -78,11 +78,11 @@ Pour cela, on ajoute des parenthèses pour former des *groupes* :
 ```python
 date_re = re.compile('([0-9]+)/([0-9]+)/([0-9]+)')
 
-result = date_re.fullmatch('1/5/2025')
+result = date_re.fullmatch('1/5/2026')
 if result:
     print(result.group(1)) # '1'
     print(result.group(2)) # '5'
-    print(result.group(3)) # '2025'
+    print(result.group(3)) # '2026'
 ```
 
 La méthode `group` de `re.Match` renvoie la portion de la chaîne qui correspondait au *groupe* donné.
@@ -90,7 +90,7 @@ Les groupes sont les sous-motifs parenthésés, et sont comptés à partir de 1.
 
 Le sous-motif `[0-9]` représente un caractère parmi les chiffres du répertoire ASCII.
 Le `+` juste derrière indique qu'on peut répéter ce sous-motif de 1 à plusieurs fois.
-`[0-9]+` est donc un motif qui représente de 1 à plusieurs chiffres (chaque chiffre peut être différent, comme dans `2025`).
+`[0-9]+` est donc un motif qui représente de 1 à plusieurs chiffres (chaque chiffre peut être différent, comme dans `2026`).
 
 ### Recherche dans une chaîne
 

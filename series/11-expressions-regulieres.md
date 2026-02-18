@@ -63,9 +63,9 @@ Demander la réponse à Python ne sert à rien pour cet exercice.
 
 ## Traducteur de dates
 
-Dans la francophonie européenne, on utilise normalement le format de date `31/12/2025`.
-Aux États-Unis, on utilise plutôt `12-31-2025`.
-En Hongrie encore, on utilise le format `2025-12-31`.
+Dans la francophonie européenne, on utilise normalement le format de date `31/12/2026`.
+Aux États-Unis, on utilise plutôt `12-31-2026`.
+En Hongrie encore, on utilise le format `2026-12-31`.
 
 Écrivez une fonction qui accepte un texte quelconque et traduit les dates du format états-unien vers le format francophone.
 

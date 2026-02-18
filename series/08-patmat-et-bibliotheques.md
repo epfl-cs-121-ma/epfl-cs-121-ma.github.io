@@ -118,7 +118,7 @@ Faites votre recherche.
 Vérifiez que la bibliothèque est digne de confiance.
 Croisez différentes sources d'opinions sur la bonne bibliothèque à utiliser.
 Ne faites pas confiance au premier résultat de votre IA favorite, pas plus qu'au premier résultat Google, Reddit, ou TikTok.
-Le piratage *via* bibliothèques frauduleuses est un *réel problème de sécurité* en 2025.
+Le piratage *via* bibliothèques frauduleuses est un *réel problème de sécurité* en 2026.
 ⚠️⚠️⚠️ (oui j'insiste avec tous mes ⚠️)
 
 Maintenant qu'on a choisi Requests, consultez sa documentation (pas *tout*, évidemment).
