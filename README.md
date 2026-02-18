@@ -1,3 +1,3 @@
-# EPFL CS-112(j) Website
+# EPFL CS-121 Website
 
-Source of https://epfl-cs-112-ma.github.io/
+Source of https://epfl-cs-121-ma.github.io/

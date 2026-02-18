@@ -8,7 +8,7 @@ use_mathjax: true
 
 ## Introduction
 
-Ce document a pour but de vous informer sur la pédagogie du cours "Programmation Orientée Objet" donné à la section MA, son mode de fonctionnement et divers autres aspects liés à son organisation.
+Ce document a pour but de vous informer sur la pédagogie du cours "Développement Logiciel" donné à la section MA, son mode de fonctionnement et divers autres aspects liés à son organisation.
 Veuillez lire l'entièreté de ce document, et ne ratez surtout pas la section "Organisation du travail" !
 
 ## Sommaire
