@@ -36,7 +36,11 @@ Sur les machines de l'EPFL, git est déjà installé.
 Sur votre propre machine, suivez les instructions correspondant à votre système [sur la page de download de git](https://git-scm.com/downloads).
 
 Vous pouvez vérifier que git est correctement installé en exécutant la commande suivante dans un terminal.
-Sous Windows, toutes les commandes git devront être exécutée dans le terminal "git bash" installé par git.
+
+⚠️ Sous **Windows**, toutes les commandes git devront être exécutée dans le terminal "git bash" installé par git.
+Naviguez avec l'interface graphique vers le dossier qui vous intéresse, puis faites un clic droit "dans le vide".
+Sélectionnez "Afficher d'autres options" puis "Open git bash here". ⚠️
+
 Les commandes ressembleront donc à un environnement Linux, peu importe votre système.
 
 ```bash
@@ -112,6 +116,18 @@ Il s'agira donc de tracer les évolutions d'un "projet", mais uniquement sur vot
 
 Commencez par créer un nouveau dossier vide `tuto-git`.
 Dans ce dossier, *initialisez* un nouveau *repository* git (aussi connu sous les noms de "repo", "dépôt" ou "référentiel") avec `git init`.
+
+⚠️⚠️⚠️ Sur **Windows** : faites attention à ne *jamais* travailler dans un dossier géré par OneDrive.
+OneDrive va entrer en conflit sévère avec `uv` et `git`.
+Des tas de choses vont mal se passer dans une ou deux semaines si vous faites ça. ⚠️⚠️⚠️
+
+et pour tout le monde :
+
+⚠️ À partir d'ici, *écrivez toutes les commandes à la main*.
+Servez-vous de "Tab" pour compléter automatiquement les noms de commandes et de fichiers, et des flèches 🡑 et 🡓 pour récupérer des commandes que vous avez déjà écrites.
+Vous allez souvent devoir écrire ces commandes.
+Si vous les copiez-collez depuis les exemples, vous ne les mémoriserez pas et vous devrez *toujours* revenir ici pour les copier-coller.
+C'est une perte de temps.
 
 ```bash
 $ pwd # où est-on exactement ?

@@ -60,7 +60,7 @@ Il indique que le reste de la ligne est une commande à exécuter dans le termin
 Les lignes qui ne commencent pas par `$` sont des *résultats* attendus des commandes.
 
 ```bash
-$ curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=~/Desktop/myfiles/.local/bin sh
+$ wget -qO- https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=~/Desktop/myfiles/.local/bin sh
 ```
 
 Ouvrez ensuite le fichier `~/.profile` (c.-à-d. le fichier `.profile` qui se trouve dans votre "home directory"), et ajoutez la ligne suivante à la fin de celui-ci :
@@ -142,8 +142,12 @@ puis, entre les `{}`, ajouter les lignes suivantes :
   "files.insertFinalNewline": true,
   "ty.inlayHints.variableTypes": false,
   "ty.diagnosticMode": "workspace",
-  "ty.inlayHints.callArgumentNames": false
+  "ty.inlayHints.callArgumentNames": false,
+  "chat.disableAIFeatures": true,
+  "files.eol": "\n"
 ```
+
+(la dernière ligne n'étant vraiment nécessaire que sur Windows).
 
 S'il y avait déjà des settings dans les `{}`, vous devrez sans doute ajouter une virgule `,` sur la ligne précédente.
 Sauvegardez pour que ces options prennent effet.
@@ -164,6 +168,18 @@ Dans un terminal, naviguez vers un dossier où vous rangerez tous vos projets po
 N'oubliez pas de le ranger dans `myfiles` si vous travaillez sur les machines de l'EPFL.
 Nous ferons référence à ce dossier comme `projets/`.
 
+⚠️⚠️⚠️ Sur **Windows** : faites attention à ne *jamais* travailler dans un dossier géré par OneDrive.
+OneDrive va entrer en conflit sévère avec `uv` et `git`.
+Des tas de choses vont mal se passer dans une ou deux semaines si vous faites ça. ⚠️⚠️⚠️
+
+et pour tout le monde :
+
+⚠️ À partir d'ici, *écrivez toutes les commandes à la main*.
+Servez-vous de "Tab" pour compléter automatiquement les noms de commandes et de fichiers, et des flèches 🡑 et 🡓 pour récupérer des commandes que vous avez déjà écrites.
+Vous allez souvent devoir écrire ces commandes.
+Si vous les copiez-collez depuis les exemples, vous ne les mémoriserez pas et vous devrez *toujours* revenir ici pour les copier-coller.
+C'est une perte de temps.
+
 Dans ce dossier, créez un projet Python vierge dans le sous-dossier `prise-en-main` avec les commandes suivantes :
 
 ```
@@ -180,7 +196,7 @@ Même si votre système possède une version "globale" de Python, `uv` utilisera
 C'est très utile, car cela garantit que votre programme fonctionnera de la même manière sur n'importe quel ordinateur.
 
 ⚠️ Vérifiez toujours qu'un fichier `.gitignore` a bien été créé par `uv init`.
-`ls .gitignore` doit afficher quelque chose.
+Vous pouvez par exemple exécuter la commande `ls .gitignore` et vérifier qu'elle n'affiche pas d'erreur.
 Si ce n'est pas le cas, c'est que vous avez accidentellement créé votre projet *à l'intérieur d'un autre repository git*.
 Des tas de choses de choses vont mal se passer dans le futur si c'est le cas ! ⚠️
 

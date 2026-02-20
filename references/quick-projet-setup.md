@@ -10,6 +10,10 @@ Vous en aurez besoin à chaque séance d'exercices, ainsi que pour votre gros pr
 
 ## Création du projet en tant que tel
 
+⚠️⚠️⚠️ Sur **Windows** : faites attention à ne *jamais* travailler dans un dossier géré par OneDrive.
+OneDrive va entrer en conflit sévère avec `uv` et `git`.
+Des tas de choses vont mal se passer dans une ou deux semaines si vous faites ça. ⚠️⚠️⚠️
+
 ```
 $ pwd
 .../projets
