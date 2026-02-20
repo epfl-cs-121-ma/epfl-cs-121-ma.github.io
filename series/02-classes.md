@@ -35,16 +35,6 @@ Un disque est caractérisé par un centre et un rayon $> 0$.
 
 N'oubliez pas [d'écrire des tests](/tutoriels/prise-en-main.html#écrire-un-test) pour tout ce que vous définissez.
 
-> Vous pourriez obtenir un avertissement du type *"Disk" is not defined (Pylance)* (ou une `NameError` à l'exécution) sur l'usage de `Disk` comme type au sein de la classe `Disk` elle-même.
-> Si c'est le cas, ajoutez la ligne suivante *au tout début* du fichier :
->
-> ```python
-> from __future__ import annotations
-> ```
->
-> De manière générale, nous aurons souvent besoin de cette ligne, étant donné notre usage intensif des types en Python.
-> Vous pouvez prendre l'habitude de l'inclure systématiquement.
-
 La constante $\pi$ peut être obtenue depuis le module `math` :
 
 ```python

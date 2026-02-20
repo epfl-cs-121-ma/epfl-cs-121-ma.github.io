@@ -175,8 +175,6 @@ D'ailleurs, un certain nombre d'entre vous en ont déjà fait les frais en voula
 ```python
 # a.py
 
-from __future__ import annotations
-
 from b import bar
 
 class C:
@@ -189,8 +187,6 @@ class C:
 ```python
 # b.py
 
-from __future__ import annotations
-
 from a import C
 
 def bar(c: C) -> int:
@@ -199,8 +195,6 @@ def bar(c: C) -> int:
 
 ```python
 # main.py
-
-from __future__ import annotations
 
 from a import C
 
@@ -241,8 +235,6 @@ On applique la même stratégie pour `b.bar`.
 ```python
 # a.py
 
-from __future__ import annotations
-
 import b
 
 class C:
@@ -254,8 +246,6 @@ class C:
 
 ```python
 # b.py
-
-from __future__ import annotations
 
 import a
 
@@ -269,8 +259,6 @@ Les références a `b.bar` et `a.C` ne doivent être *résolues* qu'une fois qu'
 
 Notez que la référence à `a.C` dans la *signature* de `def bar` n'est pas requise pour définir `bar`.
 Elle ne sera requise que lors du premier appel.
-Cela fonctionne uniquement grâce aux `from __future__ import annotations`.
-Veillez bien à toujours inclure cette ligne au début de vos modules.
 
 ## Packages
 
