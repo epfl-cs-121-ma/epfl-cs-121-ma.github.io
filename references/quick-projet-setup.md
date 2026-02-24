@@ -23,7 +23,7 @@ $ uv init -p 3.14
 ```
 
 ⚠️ Vérifiez toujours qu'un fichier `.gitignore` a bien été créé par `uv init`.
-`ls .gitignore` doit afficher quelque chose.
+Vous pouvez par exemple exécuter la commande `ls .gitignore` et vérifier qu'elle n'affiche pas d'erreur.
 Si ce n'est pas le cas, c'est que vous avez accidentellement créé votre projet *à l'intérieur d'un autre repository git*.
 Des tas de choses de choses vont mal se passer dans le futur si c'est le cas ! ⚠️
 
