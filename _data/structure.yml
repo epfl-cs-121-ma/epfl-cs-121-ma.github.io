@@ -116,3 +116,6 @@
 - title: Projet
   url: /projet/
   items:
+    - title: Découverte d'Arcade
+      url: /projet/01-decouverte.html
+      week: 2

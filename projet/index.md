@@ -3,9 +3,40 @@ title: "Projet"
 layout: default
 ---
 
-# Projet
+# Projet : Aventure top-down en 2D
 
-À découvrir en Semaine 2
+![Screenshot bande annonce](/assets/img/projet/trailer-screenshot.png)
+
+Le but du projet de cette année est de réaliser un peu jeu de type "action-aventure top-down" en 2D.
+[The Legend of Zelda](https://zelda.fandom.com/wiki/The_Legend_of_Zelda), publié par Nintendo en 1986, est l'exemple canonique de ce type de jeu.
+À l'époque, il s'agissait d'une prouesse technologique.
+En 2026, vous allez pouvoir produire en quelques mois un jeu aux caractéristiques similaire (bien que beaucoup plus restreint en termes de *quantité* de contenu).
+
+Nous n'allons pas partir de rien !
+Nous allons profiter de la bibliothèque [Arcade](https://api.arcade.academy/en/latest/) pour nous donner quelques primitives graphiques et physiques.
+Vous pourrez également utiliser des images et sons (*assets*) tout faits, libres de droits.
+Cependant, vous allez développer toute la logique du jeu.
+
+Vous recevrez chaque semaine des instructions pour aller un peu plus loin dans le développement du jeu.
+Au fur et à mesure des semaines, vous disposerez de plus en plus de libertés sur les choix de conception, d'implémentation, et même des fonctionnalités que vous ajouterez à votre de jeu.
+La première semaine sera détaillée pas à pas, avec peu de libertés, afin que vous maîtrisiez les principaux concepts impliqués dans la réalisation d'un jeu de ce type.
+Lors des deux dernières semaines, vous aurez pratiquement quartier libre pour faire briller votre créativité.
+
+Certaines semaines n'apportent rien de nouveau.
+Elles seront consacrées à améliorer votre code et rattraper votre retard éventuel.
+Il est donc "normal" de prendre *un peu* de retard au long du projet.
+
+## Étapes de la réalisation du projet
+
+<ol>
+  {% for section in site.data.structure %}
+  {% if section.url == '/projet/' %}
+  {% for item in section.items %}
+    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</ol>
 
 ## Administration
 
@@ -15,33 +46,50 @@ Le projet est à réaliser impérativement en groupe de deux personnes sans aucu
 Les groupes sont à constituer d'ici au 6 mars 2026.
 
 Concernant le rendu, nous ne vous demandons pas de rapport (document) sur le projet.
-Par contre, nous vous demandons de commenter intelligemment les codes sources que vous nous rendrez et de fournir quatre fichiers complémentaires :
+Par contre, nous vous demandons de commenter intelligemment les codes sources que vous nous rendrez et de fournir trois fichiers complémentaires :
 
 * Un fichier `LOG.md` (journal) résumant votre progression et reportant, brièvement, semaine après semaine, ce que vous avez fait sur le projet.
   Voir un [exemple ici](./LOG.md).
   Cela permettra à votre groupe de mieux se coordonner et de toujours savoir où vous en êtes.
-  Soyez concis mais précis, clairs et objectifs.
-  On peut très bien comprendre que, ponctuellement, telle ou telle semaine vous ayez eu d'autres contraintes et ayez moins avancé sur le projet.
-  Vous pouvez également inclure vos états-d'âme, tout en respectant celles et ceux qui vous liront.
-
-  Veillez donc à bien mettre à jour votre JOURNAL chaque semaine (cela fera partie de la notation).
-
-* Un fichier `ANSWERS.md` répondant point par point aux questions posées dans les instructions hebdomadaires du projet.
-  Ces réponses ne sont bien sûr pas uniques mais dépendent de la façon dont *vous* concevez votre projet.
-  Elles serviront aux correcteurs et correctrices à mieux comprendre votre conception.
+  C'est surtout un outil pour vous.
+  Je me sers aussi de vos estimations de temps de travail pour améliorer les éditions futures.
 
 * Un fichier `DESIGN.md` ou `DESIGN.pdf` (à faire au fur et à mesure) décrivant vos modules, vos classes, leurs responsabilités et leurs interactions.
   On s'attend évidemment ici à ce que vous mettiez en valeur la façon dont vous avez mis en œuvre les différentes méthologies vues au cours (elles ne seront pas forcément toutes applicables).
 
-  Ce fichier peut être soit sous forme textuelle donnant simplement la liste des classes et leur relations, soit sous forme graphique (en utilisant par exemple [Inkscape](https://inkscape.org/fr/)).
+  Dans les énoncés hebdomadaires du projet, nous proposons des "Questions de design".
+  Elles sont là pour vous faire réfléchir, mais ce sont aussi de bonnes candidates pour du contenu pour votre fichier `DESIGN`.
+
+  Ce fichier peut être soit sous forme textuelle, soit sous forme graphique.
+
+  Longueur attendue : quelques pages (moins de 10).
 
 * Un fichier `README.md` expliquant ce qu'est votre programme et comment l'utiliser.
   Donnez quelques exemples concrets.
   Imaginez que c'est le fichier que votre famille et vos amis vont consulter pour découvrir votre jeu (bon, des amis qui ont installé `uv` et qui savent ouvrir une ligne de commande/shell...).
 
-La date limite de remise du projet est le vendredi 29 mai à 23h58.
+  Longueur attendue : quelques paragraphes.
+
+Les fichiers `DESIGN` et `README` sont évalués.
+Le fichier `LOG` ne l'est pas.
+
+La date limite de remise du projet est le vendredi 29 mai 2026 à 23h58.
 Cette date est absolument impérative.
 Aucune extension de délai ne sera accordée !
+
+### Défense
+
+Vers la mi-parcours, vous vous présenterez vos projets entre vous, par "grappe" de 3 groupes.
+Prévoyez une présentation de 10-15 minutes, qui illustre les points importants de votre design.
+Vous devrez vous donner du feedback entre vous, à l'intérieur de chaque "grappe".
+Ce feedback devra viser à améliorer vos designs respectifs ; vous pouvez aussi donner du feedback sur la présentation en tant que telle.
+
+En fin de semestre, vous ferez une présentation similaire, mais cette fois devant un ou une assistante.
+Cette "défense" doit nous convaincre que vous avez réellement compris ce qui se trouve dans votre projet.
+Chaque membre du binôme doit donc, évidemment, y briller individuellement.
+
+En cas de doute de la part de la personne qui vous évalue, vous devrez défendre devant l'enseignant.
+Quelques groupes seront aussi sélectionnés aléatoirement pour défendre directement devant l'enseignant.
 
 ### Organisation du travail
 
