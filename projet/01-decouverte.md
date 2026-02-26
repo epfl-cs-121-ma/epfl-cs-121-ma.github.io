@@ -555,7 +555,7 @@ puis ajoutons les méthodes suivantes dans `GameView` :
                 self.player.change_x = 0
             case arcade.key.UP | arcade.key.DOWN:
                 # stop vertical movement
-                self.player.change_x = 0
+                self.player.change_y = 0
 ```
 
 Notez que nous avons défini `PLAYER_MOVEMENT_SPEED` en "pixels per frame".
