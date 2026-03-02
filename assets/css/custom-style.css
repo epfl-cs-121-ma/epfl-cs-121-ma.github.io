@@ -80,3 +80,8 @@ a:hover, a:focus {
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.asset-scaled-to-32 {
+  width: 32px;
+  height: 32px;
+}
