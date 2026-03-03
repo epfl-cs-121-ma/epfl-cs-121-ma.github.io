@@ -15,6 +15,10 @@ Dans ce court chapitre, nous étudions plus en détail les notions de *modules* 
 **Ce chapitre ne fait pas partie de la "matière d'examen".**
 Vous devez savoir importer depuis des bibliothèques, mais on ne vous demandera pas de définir des modules ni des packages en examen.
 
+**Vous pouvez d'ailleurs tout à fait remettre ce chapitre à plus tard.**
+Je le place assez tôt parce que vous risquez de tomber sur les problématiques liées aux modules dans votre projet (et en particulier les dépendances circulaires).
+Vous pouvez revenir ici plus tard si vous tombez sur ces problèmes.
+
 ## Sommaire
 
 {::options toc_levels="2..3" /}
