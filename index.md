@@ -20,8 +20,8 @@ Exercices et avancement du projet : **{{ site.courseinfo.exercises_time }}, {{ s
 
 | Évaluation         | Date                     | Pourcentage |
 |--------------------|--------------------------|-------------|
-| Midterm            | TBD                      | 17 %        |
-| Final              | TBD                      | 33 %        |
+| Midterm            | 23 avril, 9h15--11h00    | 17 %        |
+| Final              | 21 mai, 9h15--11h00      | 33 %        |
 | Projet, par binôme | 29 mai, 23h58 (deadline) | 50 %        |
 
 ⚠️ La note du projet est **minorée** à 1,5x la note des deux examens.
