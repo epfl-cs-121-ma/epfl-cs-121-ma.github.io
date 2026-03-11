@@ -212,9 +212,9 @@ class Vec2:
         return self.x == other.x and self.y == other.y
 ```
 
-Cependant, mypy nous dit
+Cependant, ty nous dit
 
-> Argument 1 of `__eq__` is incompatible with supertype `object`; supertype defines the argument type as `object`
+> Definition is incompatible with `object.__eq__`
 
 Ignorons le problème un instant et exécutons quand même notre petit code d'expérimentation :
 
@@ -228,7 +228,7 @@ print(x == z) # True
 
 Tout va bien !
 
-Alors pourquoi `mypy` n'est-il pas content ?
+Alors pourquoi ty n'est-il pas content ?
 Une vraie réponse à cette question devra attendre encore quelques semaines.
 Nous n'avons pas encore tous les concepts pour l'expliquer.
 

@@ -112,7 +112,7 @@ class Vec2:
             case _:
                 # Tous les autres cas.
                 # La valeur de retour `NotImplemented` est spéciale.
-                # Mypy l'accepte malgré que le résultat soit `bool`.
+                # ty l'accepte malgré que le résultat soit `bool`.
                 return NotImplemented
 ```
 
@@ -254,7 +254,7 @@ print(parent.a) # 5
 print(parent.foo("world")) # world 5
 ```
 
-Par contre, les instructions suivantes sont rejetées par mypy :
+Par contre, les instructions suivantes sont rejetées par ty :
 
 ```python
 print(parent.b)
@@ -618,7 +618,7 @@ class Shape:
 ```
 
 L'implémentation d'une méthode abstraite pour être, littéralement, `...`.
-Mypy considère alors que cette méthode est exclusivement une *interface*, sans implémentation associée.
+ty considère alors que cette méthode est exclusivement une *interface*, sans implémentation associée.
 
 Notre exemple complet fonctionne désormais.
 Il est *statiquement* possible d'appeler `x.area()`, puisque l'interface de `Shape` définit bien une cette méthode.
@@ -631,12 +631,12 @@ s = Shape()
 print(s.area()) # oops ?
 ```
 
-Dans ce cas, mypy nous sauve, en nous disant qu'il n'est pas possible d'instancier `Shape` car c'est une classe abstraite :
-
-> Cannot instantiate abstract class `Shape` with abstract attribute `area`.
+Là, nous avons un problème.
+ty *devrait* nous empêcher de faire cela, mais [pour l'instant il ne le fait pas](https://github.com/astral-sh/ty/issues/1877).
+On doit donc faire nous-mêmes preuve de vigilance.
 
 Toute classe qui contient au moins une méthode abstraite (ou hérite d'une méthode abstraite sans l'implémenter) est considérée comme **classe abstraite**.
-Il n'est pas possible d'instancier une classe abstraite directement.
+On ne peut pas instancier une classe abstraite directement, sous peine d'avoir des problèmes lorsqu'on appelle ses méthodes abstraites.
 On ne peut instancier que ses sous-classes qui auront donné une implémentation à toutes ses méthodes abstraites.
 
 Avec tout ça, on a récupéré le polymorphisme.

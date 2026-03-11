@@ -217,7 +217,7 @@ Si vous connaissez déjà les concepts de classes et de méthodes dans d'autres 
 J'ai dit plus haut que les attributs *doivent* être déclarés au niveau de la classe.
 J'ai menti.
 En Python, c'est l'initialisation dans le constructeur qui fait foi.
-Mypy est capable d'inférer le type des attributs d'après le type de valeur qui leur est assignée dans le constructeur.
+ty est capable d'inférer le type des attributs d'après le type de valeur qui leur est assignée dans le constructeur.
 Cependant, cela rend le code moins lisible.
 Je recommende donc très fortement de systématiquement déclarer tous les attributs des classes en amont.
 
@@ -427,7 +427,7 @@ cash_dispenser.withdraw(...) # ok
 cash_dispenser.__safe # AttributeError: 'CashDispenser' object has no attribute '__safe'
 ```
 
-Malheureusement, on ne reçoit pas d'erreur de type parce que [mypy n'implémente pas correctement les attributs privés](https://github.com/python/mypy/issues/8267).
+Malheureusement, on ne reçoit pas d'erreur de type parce que [ty n'implémente pas correctement les attributs privés](https://github.com/astral-sh/ty/issues/645).
 
 Grâce aux attributs privés, nous avons réussi à protéger l'accès aux détails d'implémentation.
 Nous avons donc correctement *encapsulé* le coffre-fort.
