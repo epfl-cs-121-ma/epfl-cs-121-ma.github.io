@@ -504,6 +504,60 @@ On ne peut donc pas insérer "clandestinement" un `A` dans un `tuple[B, ...]`.
 Cette propriété se généralise souvent à tout type de conteneur *immuable*.
 Les `frozenset`s sont covariants en leur type d'élément, par exemple.
 
+### `Sequence` est covariant
+
+Comme on l'a vu plus haut, `list[T]` et `tuple[T, ...]` sous tous les deux sous-types de `abc.Sequence[T]`.
+`list[T]` est invariant, mais `tuple[T, ...]` est covariant.
+Qu'en est-il de `Sequence[T]` ?
+
+`Sequence[T]` n'est pas *immuable*.
+En effet, même si on ne peut pas modifier son contenu *via* la référence de type `Sequence[T]`, une autre partie du code pourrait le faire, s'il s'agit en fait d'une `list[T]`.
+En revanche, elle est bien en *lecture seule* (*read only* en anglais).
+
+Il s'avère qu'on peut généraliser la propriété de covariance à tous les types en lecture seule, et pas seulement ceux qui sont immuables.
+Plus précisément, est covariant un type `X[T]` si et seulement si on peut uniquement *lire*/*obtenir* des `T` depuis un `X[T]`, et pas y *écrire* des `T`.
+Comme on ne peut que lire des `T` depuis une `Sequence[T]`, ce type est donc bien covariant.
+
+Si `B <: A`, on a donc la chaîne de sous-typage `list[B] <: Sequence[B] <: Sequence[A]`.
+On a aussi `list[A] <: Sequence[A]`.
+Mais nous n'avons toujours pas `list[B] <: list[A]`, bien entendu.
+
+Accepter n'importe quelle `Sequence[T]`, quand c'est possible, est donc plus général qu'accepter seulement des `list[T]` ou des `tuple[T, ...]`.
+
+#### Mieux comprendre votre projet
+
+`SpriteList[T]` est manifestement muable, puisqu'on peut y ajouter des `T`.
+Cette classe est donc invariante.
+
+Cependant, tout comme `list[T] <: Sequence[T]`, on a `SpriteList[T] <: SpriteSequence[T]`.
+Une `SpriteSequence[T]` est une vue en *lecture seule* d'une `SpriteList` ; elle est donc covariante.
+On ne peut pas ajouter des éléments dedans, mais on peut itérer dessus, et notamment l'utiliser dans des tests de collisions !
+
+Avez-vous déjà réellement regardé la signature de `check_for_collision_with_list` ?
+La voici :
+
+```python
+def check_for_collision_with_list[SpriteType: BasicSprite](
+    sprite: BasicSprite,
+    sprite_list: SpriteSequence[SpriteType],
+    method: int = 0,
+) -> list[SpriteType]:
+```
+
+Ici, le type générique borné `SpriteType` fait qu'il n'est que moyennement important que `sprite_list` soit une `SpriteSequence[SpriteType]` et non une `SpriteList[SpriteType]`.
+En revanche, il existe une autre méthode de collisions, qui accepte *plusieurs* `SpriteSequence`s et teste avec toutes celles-ci en même temps.
+Sa signature est un peu plus compliquée :
+
+```python
+def check_for_collision_with_lists[SpriteType: BasicSprite](
+    sprite: BasicSprite,
+    sprite_lists: Iterable[SpriteSequence[SpriteType]],
+    method: int = 0,
+) -> list[SpriteType]:
+```
+
+Cette fois, l'utilisation d'une `SpriteSquence` permet de passer à la fois une `SpriteList[A]` et une `SpriteList[B]`, pour un choix appropriété de `SpriteType` tel que `A <: SpriteType` et `B <: SpriteType`.
+
 ### `Consumer` est contravariant
 
 Imaginons l'interface (abc) suivante :
