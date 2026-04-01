@@ -120,7 +120,7 @@ Le nœud le plus à gauche de la cellule d'à côté aura donc un nœud à $s + 
 
 Pour garder un grillage régulier, et pour que le centre de la cellule fasse toujours partie du navmesh, on utilisera toujours $n^2$ nœuds par cellule avec $n$ un entier impair.
 1 nœud, 9 nœuds, 25 nœuds, etc.
-De manière générale pour $n \times n$ nœuds par cellule, leurs positions se situeront à $(2i+1)s/6$ pour $i \in [0, n)$.
+De manière générale pour $n \times n$ nœuds par cellule, leurs positions se situeront à $(2i+1)s/(2n)$ pour $i \in [0, n)$.
 
 ⚠️ Attention cependant !
 On a maintenant des nœuds qui, n'étant pas au centre d'une case non-obstacle, seront trop près d'un buisson.
