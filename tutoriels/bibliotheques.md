@@ -150,6 +150,16 @@ uv nous donne le meilleur des deux mondes :
 * on ne garde qu'une seule copie de chaque bibliothèque par ordinateur ;
 * mais les projets sont quand même bien isolés les uns des autres.
 
+## Bibliothèques de "stubs de types"
+
+Beaucoup de bibliothèques Python sont écrites *sans types*, principalement pour des raisons historiques.
+Ce n'est pas pratique pour les utiliser avec ty.
+
+La plupart d'entre elles ont une bibliothèque associée de "stubs de types" (*typing stubs*).
+Vous devrez souvent installer les stubs de types correspondant aux bibliothèques que vous voudrez utiliser avec ty.
+
+Par exemple, la bibliothèque `networkx` que vous utiliserez dans le projet n'a pas de types, mais il existe une bibliothèque de stubs de types correspondante, à savoir `types-networkx`.
+
 ## Un mot sur `pip install` et les virtual envs
 
 Au contraire d'`uv`, `pip install` installe *globalement* les bibliothèques que vous lui demandez.
