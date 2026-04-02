@@ -129,11 +129,14 @@ Par contre, on a parfaitement le droit de créer des nœuds proche des *trous*.
 
 ### Ligne de vue sur le joueur
 
-Lorsqu'un blog "voit" le joueur, à n'importe quelle frame, il abandonne sa destination courante et la remplace par la position courante du joueur.
+Lorsqu'un blob "voit" le joueur, à n'importe quelle frame, il abandonne sa destination courante et la remplace par la position courante du joueur.
 Un blob voit le joueur s'il y a une *ligne de vue* depuis son centre jusqu'au centre du joueur.
 
 Utilisez la fonction [`arcade.has_line_of_sight`](https://api.arcade.academy/en/stable/example_code/line_of_sight.html).
 Les buissons sont les seuls "murs" qui bloquent la vue.
+
+Vous voudrez aussi probablement limiter la vue à une distance maximale.
+Par exemple, si la distance entre le blob et le joueur est de plus de $5s$, vous pourriez considérer qu'il est trop loin pour être vu, qu'il y ait des buissons ou pas.
 
 En particulier, les *trous* ne bloquent pas la vue, mais sont des obstacles.
 Un blob peut donc repérer le joueur par-dessus un trou, mais devoir faire un détour pour le pourchasser !
