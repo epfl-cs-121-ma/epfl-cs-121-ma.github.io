@@ -368,6 +368,7 @@ Si la configuration ne respecte pas le format, pour une raison ou une autre, le 
 **Questions de design :**
 
 * Quelle structure de données utilisez-vous pour représenter les conditions d'ouverture des portails ? Pourquoi ?
+* Pouvez-vous tester l'évaluation des formules logiques sans dépendre de Arcade ?
 * S'il y a $n$ interrupteurs et $m$ portails, et en supposant que chaque condition de portail n'est qu'un unique `switch_is_on` (pas de `and`, `or`, `not`), quelle est la complexité de traitement des portails à chaque frame ?
 
 ## Compléter le log
