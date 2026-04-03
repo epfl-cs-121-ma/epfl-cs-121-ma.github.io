@@ -182,7 +182,8 @@ Nous vous proposons les étapes suivantes pour votre implémentation, afin de di
 
 * Qu'avez-vous choisi comme type de nœud `TypeNoeud` ? Pourquoi ?
 * À quel niveau traitez-vous la construction du navmesh (dans `Map`, dans votre map reader, dans la gestion des blobs, etc.), et où le stockez-vous ? Pourquoi ces choix ?
-* Si vous avez $n \times n$ nœuds par cellule, et une carte de taille $m \times $m$, quelle est la complexité de vos différents algorithmes ?
+* Pouvez-vous tester la construction du navmesh, voire la recherche de chemin, sans dépendre de Arcade (ou seulement de ses structures inertes comme `Vec2`) ?
+* Si vous avez $n \times n$ nœuds par cellule, et une carte de taille $m \times m$, quelle est la complexité de vos différents algorithmes ?
 
 ### Afficher le navmesh pour déboguer
 
