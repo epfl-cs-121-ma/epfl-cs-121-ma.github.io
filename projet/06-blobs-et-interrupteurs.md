@@ -273,11 +273,11 @@ On va maintenant ajouter deux nouvelles sections : `switches` et `gates`.
 Voici un exemple de map qui possède deux interrupteurs et deux portails.
 
 ```yaml
-width: 24
-height: 8
+width: 40
+height: 15
 switches:
   - id: first
-    x: 0
+    x: 1
     y: 7
     # this switch is off when the game starts (no 'state')
   - id: second
@@ -293,7 +293,6 @@ gates:
         - switch_is_on: first
         - not:
           - switch_is_on: second
-gates:
   - x: 10
     y: 3
     # open the gate iff the switch 'first' is off *or* the switch 'second' is off
@@ -304,7 +303,21 @@ gates:
         - not:
           - switch_is_on: second
 ---
-... (la map ici)
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+x  *               S     x             x
+x                        x    *   *    x
+x                      * x             x
+x         s        xxxxxxx            sx
+x     xxx *   xx                       x
+x                            xxx       x
+x^   |  v    xxxxxxxxxx        x       x
+x       ^ *                    x   *   x
+x      S              S     *  x       x
+x  *       v    *              O       x
+x         |                    O       x
+x     xx     s        xs               x
+x  P      *           x       *        x
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ---
 ```
 
