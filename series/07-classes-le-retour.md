@@ -163,9 +163,9 @@ Définissez les classes `Shape`, `Rectangle` et `Square` avec leur méthode `are
 Puis, définissez et testez les deux fonctions suivantes.
 
 `biggest_shape` doit accepter une *liste* de `Shape`s et renvoyer celle dont l'aire est la plus grande.
-Si on lui donne une `list[Rectange]`, elle doit renvoyer une `list[Rectangle]`, et de même avec des `list[Square]`.
+Si on lui donne une `list[Rectange]`, elle doit renvoyer un `Rectangle`, et de même avec des `list[Square]` (renvoyer un `Square`).
 
 `combine_shape_lists` doit accetper *deux* listes de `Shape`s, et renvoyer une nouvelle liste contenant les éléments des deux listes mises bout à bout (concaténées).
 Si on lui passe deux `list[Shape]`, elle doit renvoyer une `list[Shape]`.
-Si on lui passe deux `list[Rectangle]`, elle doit renvoyer une `list[Shape]`.
+Si on lui passe deux `list[Rectangle]`, elle doit renvoyer une `list[Rectangle]`.
 Plus dur : si on lui passe une `list[Rectangle]` et une `list[Square]`, elle doit renvoyer une `list[Shape]`.
