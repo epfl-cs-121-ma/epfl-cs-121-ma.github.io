@@ -13,6 +13,10 @@ Nous allons donner des outils qui vous permettent de *mesurer* les performances,
 On parle donc de performances *brutes* cette semaine (*raw performance* en anglais).
 Elles complémentent les performances *théoriques* que sont la complexité temporelle.
 
+**Ce chapitre ne fait pas partie de la "matière d'examen".**
+Vous aurez besoin de ce chapitre pour votre projet.
+En revanche, comme son exploitation requiert de faire des mesures, il ne sera pas évalué en situation d'examen.
+
 ## Sommaire
 
 {::options toc_levels="2..3" /}
