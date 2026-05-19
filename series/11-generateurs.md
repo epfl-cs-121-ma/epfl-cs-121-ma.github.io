@@ -49,7 +49,7 @@ affichera
 Une `str` est un `Iterable[str]`.
 Généralisez votre `StrIterator` en `IndexIterator[T]` pour fonctionner sur n'importe quel `Iterable[T]`, produisant des `tuple[int, T]`.
 
-Écrivez maintenant une fonction `index_iterator[T]` qui accepte un `Iterable[T]` et renvoie un `Iterator[tuple[int, str]]`.
+Écrivez maintenant une fonction `index_iterator[T]` qui accepte un `Iterable[T]` et renvoie un `Iterator[tuple[int, T]]`.
 L'itérateur renvoyé doit itérer de la même façon que `IndexIterator`.
 Une implémentation valable de cette fonction serait de renvoyer un `IndexIterator`.
 Écrivez-en une autre version, qui soit écrite sous forme de *fonction génératrice*, avec `yield`.
